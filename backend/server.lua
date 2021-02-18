@@ -182,6 +182,7 @@ require('weblit-app')
 
   .use(require('weblit-logger'))
   .use(require('weblit-auto-headers'))
+	.use(require('weblit-force-https'))
 
   .bind({
   host = "0.0.0.0",
@@ -212,15 +213,6 @@ require('weblit-app')
 	res.code=200
 	res.body = fs.readFile("./articles/stream/stream.html")
 	res.headers["Content-Type"] = "text/html"
-end)
-
-.route({
-	method = "GET",
-	path = "/",
-	host = "www.fuckmeuwu.com"
-}, function(req,res,go)
-	res.code = 301
-	res.headers.Location = "https://fuckmeuwu.com/"
 end)
 
 
